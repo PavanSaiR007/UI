@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard</title>
+  <style>
+    * { 
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, sans-serif;
+    }
+    body { 
+        display: flex;
+        background: #0f1b2d;
+        color: #fff;
+        min-height: 100vh;
+    }
+    
+    /* Navigation */
+    aside {
+        width: 200px;
+        background: deepblue;
+        padding: 20px;
+    }
+    aside h2 {
+        color: #ffb84d;
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+    aside nav a { 
+        display: block; 
+        color: #9fb2d8; 
+        text-decoration: none; 
+        padding: 10px; 
+        border-radius: 4px; 
+        margin-bottom: 4px; 
+    }
+    aside nav a:hover, aside nav a.active { 
+        background: #28364f; 
+        color: #ffb84d; 
+    }
+
+    /* Main Content */
+    main { 
+        flex: 1; 
+        padding: 24px; 
+    }
+    .header { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        margin-bottom: 20px; 
+    }
+    .btn { 
+        background: #ffb84d; 
+        border: 0; 
+        padding: 10px 16px; 
+        border-radius: 4px; 
+        font-weight: bold; 
+        cursor: pointer; 
+    }
+
+    /* Stats Grid */
+    .cards { 
+        display: grid; 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 12px; 
+        margin-bottom: 20px; 
+    }
+    .card { 
+        background: blue; 
+        padding: 16px; 
+        border: 1px solid #324564; 
+        border-radius: 6px; 
+    }
+    .card h1 { 
+        font-size: 28px; 
+        margin-top: 4px; 
+    }
+    .card span { 
+        color: #9db0d2; 
+        font-size: 12px; 
+        font-weight: bold; 
+    }
+
+    /* Controls & Table */
+    .toolbar { 
+        display: flex; 
+        gap: 10px; 
+        margin-bottom: 16px; 
+    }
+    input, select { 
+        background: #182746; 
+        color: #fff; 
+        border: 1px solid #324564; 
+        padding: 8px 12px; 
+        border-radius: 4px; 
+    }
+    input { 
+        flex: 1; 
+    }
+
+    table { 
+        width: 100%; 
+        border-collapse: collapse; 
+        background: #182746; 
+        border-radius: 6px; 
+        overflow: hidden; 
+    }
+    th, td { 
+        padding: 12px; 
+        text-align: left; 
+        border-bottom: 1px solid #2c3d5a; 
+        font-size: 14px; 
+    }
+    th { 
+        color: #9db0d2; 
+        background: #14213d; 
+    }
+    tr:hover { 
+        background: #21304c;
+         }
+
+    /* Utility Status & Badges */
+    .tag { padding: 2px 8px; border-radius: 12px; font-size: 11px; background: #28364f; }
+    .active { color: #64ff9b; }
+    .suspended { color: #ff6b6b; }
+    .invited { color: #ffb84d; }
+  </style>
+</head>
+<body>
+
+  <aside>
+    <h2> DEV SUITE </h2>
+    <nav>
+      <a href="#">Overview</a>
+      <a href="#" class="active">Users</a>
+      <a href="#">Roles</a>
+      <a href="#">Settings</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="header">
+      <h1>User Management</h1>
+      <button class="btn">+ Invite User</button>
+    </div>
+
+    <div class="cards">
+      <div class="card"><span>TOTAL</span><h1>142</h1></div>
+      <div class="card"><span>ACTIVE</span><h1>128</h1></div>
+      <div class="card"><span>NEW</span><h1>+16</h1></div>
+      <div class="card"><span>ADMINS</span><h1>6</h1></div>
+    </div>
+
+    <div class="toolbar">
+      <input type="text" placeholder="Search users...">
+      <select><option>All Roles</option></select>
+      <select><option>All Statuses</option></select>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>ID</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Last Active</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ananya Rao</td>
+          <td>USR-001</td>
+          <td><span class="tag">Admin</span></td>
+          <td class="active">● Active</td>
+          <td>2 hrs ago</td>
+        </tr>
+        <tr>
+          <td>Vikram Kulkarni</td>
+          <td>USR-014</td>
+          <td><span class="tag">Editor</span></td>
+          <td class="active">● Active</td>
+          <td>5 hrs ago</td>
+        </tr>
+        <tr>
+          <td>Marcus Jenkins</td>
+          <td>USR-035</td>
+          <td><span class="tag">Editor</span></td>
+          <td class="invited">● Invited</td>
+          <td>Never</td>
+        </tr>
+        <tr>
+          <td>Rohan Seth</td>
+          <td>USR-063</td>
+          <td><span class="tag">Viewer</span></td>
+          <td class="suspended">● Suspended</td>
+          <td>21 days ago</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+</body>
+</html>
